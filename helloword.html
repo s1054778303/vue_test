@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="test">
+			<input type="text" name="" id="" v-model="msg"/>
+			<p>Hello {{msg}}</p>
+		</div>
+		<p id="test2">{{msg}}</p>
+		<script type="text/javascript">
+			const vm1=new Vue({
+				el:'#test',//用于指定模板的根元素
+				data:{//包含一些数据属性的对象
+					msg:'atguigu'
+				}
+			})
+			
+			setTimeout(()=>{
+				vue1.msg='hello-atguigu';
+			},1000)
+			
+			new Vue({
+				el:'#test2',
+				data:{
+					msg:'hello'
+				}
+			})
+		</script>
+	</body>
+</html>
+ 
