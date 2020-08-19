@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//Object.defineProperty()方法会直接在一个对象上定义一个新属性,或者修改一个对象的现有属性,并且返回这个对象
+			const p={
+				firstName:'A',
+				lastName:'B'
+			}
+			
+			Object.defineProperty(p,'fullName',{
+				get(){
+					return p.firstName+'-'+p.lastName;
+				},
+				set(value){
+					
+				}
+			})
+			console.log(p.fullName);
+		</script>
+	</body>
+</html>

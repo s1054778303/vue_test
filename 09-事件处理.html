@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>1.绑定事件</h2>
+			<button type="button" @click="test1">按钮1</button>
+			<button type="button" @click="test2('3',$event)">按钮2</button>
+			
+			<h2>2.事件修饰符</h2>
+			<!-- 阻止事件的默认行为 -->
+			<a href="https://www.baidu.com" @click.prevent="go">跳转</a>
+			<!-- 阻止事件冒泡 -->
+			<div style="width: 200px; height: 200px; background-color: pink;" @click="div1">
+				div1
+				<div style="width: 100px; height: 100px; background-color: yellow;" @click.stop="div2">
+					div2
+				</div>
+			</div>
+			
+			<h2>3.按键修饰符</h2>
+			<input type="" name="" id="" value="" v-model="msg" @keyup.enter="keyup"/>
+			
+			
+		</div>
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#app',
+				data:{
+					msg:''
+				},
+				methods:{
+					test1(e){
+						alert(e.target.innerHTML);
+					},
+					test2(v,event){
+						alert(v);
+					},
+					go(){
+						alert('跳转');
+					},
+					div1(){
+						alert('div1');
+					},
+					div2(){
+						alert('div2');
+					},
+					keyup(event){
+						/* if(event.keyCode==13){
+							alert(this.msg);
+						} */
+						alert(this.msg);
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

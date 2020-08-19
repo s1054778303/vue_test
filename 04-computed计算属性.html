@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			姓:<input type="text" name=""  placeholder="First Name" value="" v-model="firstName" /><br>
+			名:<input type="text" name=""  placeholder="Last Name" value="" v-model="lasttName"/><br>
+			姓名1(单向):<input type="text" name="" placeholder="Full Name1" value="" v-model="fullName1" /><br>
+			姓名2(单向):<input type="text" name=""  placeholder="Full Name2" value="" v-model="fullName3" /><br>
+			姓名2(双向):<input type="text" name="" placeholder="Full Name3" value=""  v-model="fullName2"/><br>
+		</div>
+		
+		<script type="text/javascript">
+			//全局配置
+			Vue.config.productionTip=false;
+			
+			new Vue({
+				el:'#demo',
+				data:{
+					firstName:'A',
+					lasttName:'B',
+					fullName3:'A-B'
+				},
+				//什么时候需要计算属性
+				//如果要显示的数据可以根据现有的数据计算产生
+				computed:{//计算属性
+					fullName1(){
+						return this.firstName+'-'+this.lasttName;
+					},
+					fullName2:{
+						get(){
+							return this.firstName+'-'+this.lasttName;
+						},
+						set(value){
+							let names=value.split('-');
+							this.firstName=names[0];
+							this.lasttName=names[1];
+						}
+					}
+				},
+				watch:{
+					firstName:function(v){
+						this.fullName3=v+'-'+this.lasttName;
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>

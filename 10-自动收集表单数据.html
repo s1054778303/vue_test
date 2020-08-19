@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<form action="" method="post">
+				<label for="username">用户名:</label>
+				<input type="text" name="" id="username"  v-model="username"/><br>
+				<label for="password">密码:</label>
+				<input type="password" name="" id="password" value="" v-model="pwd"/><br>
+				<label>性别:</label>
+				<input type="radio" name="sex"  id="male" value="0" v-model="sex"/>
+				<label for="male">女</label>
+				<input type="radio" name="sex" id="man" value="1" v-model="sex"/>
+				<label for="male">男</label><br>
+				<label>爱好:</label>
+				<input type="checkbox" name="" id="basket" value="0" v-model="likes"/>
+				<label for="basket">篮球</label>
+				<input type="checkbox" name="" id="foot" value="1" v-model="likes"/>
+				<label for="foot">足球</label>
+				<input type="checkbox" name="" id="pingpang" value="2" v-model="likes"/>
+				<label for="pingpang">乒乓</label><br>
+				<label>城市:</label>
+				<select name="" v-model="cityId">
+					<option value="">--未选择--</option>
+					<option v-for="city in cities" :key="city.id" :value="city.id">{{city.name}}</option>
+				</select><br>
+				<label>介绍</label>
+				<textarea rows="10" cols="" v-model="info">
+					
+				</textarea><br>
+				<input type="submit" @click.prevent="regist" value="注册" />
+			</form>
+		</div>
+
+		<script type="text/javascript">
+			new Vue({
+				el: '#app',
+				data: {
+					username:'',
+					pwd:'',
+					sex:'',
+					likes:[1],
+					cities:[
+						{
+							id:'1',
+							name:'杭州'
+						},
+						{
+							id:'2',
+							name:'上海'
+						},
+						{
+							id:'3',
+							name:'北京'
+						}
+					],
+					cityId:'2',
+					info:''
+					
+				},
+				methods: {
+					regist() {
+						alert('提交了');
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

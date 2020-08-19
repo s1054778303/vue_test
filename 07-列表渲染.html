@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="demo">
+			<h2>测试:v-for遍历数组</h2>
+			<ul>
+				<!-- 语法格式：v-for=(item, index) in items -->
+				<!-- 注意：如果使用 v-for 迭代数字的话，前面的 count 值从 1 开始 -->
+				<li v-for="(item,index) in persons" :key='item.id'>{{item.id}}--{{item.name}}--{{item.age}}--<button @click="del(index)">删除</button>--<button @click="update">更新</button></li>
+			</ul>
+			<h2>测试:v-for遍历对象</h2>
+		</div>
+		
+		
+		<script type="text/javascript">
+			new Vue({
+				el:'#demo',
+				data:{
+					persons:[
+						{id:1,name:'tom',age:18},
+						{id:2,name:'张三',age:20},
+						{id:3,name:'李四',age:25}
+					]
+				},
+				methods:{
+					del:function(index){
+						this.persons.splice(index,1);
+					},
+					update:function(){
+						let currIndex=this.persons.length;
+						this.persons.push({id:currIndex+1,name:'王五',age:22});
+					}
+				}
+			})
+			
+			
+		</script>
+	</body>
+</html>
