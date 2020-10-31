@@ -16,11 +16,20 @@
 				el:'#app',
 				data:{
 					isShow:true
+				},
+				//界面初始显示之后立即回调
+				mounted(){
+					let t=this;
+					this.inteverId =setInterval(function(){
+						t.isShow=!t.isShow;
+					},1000) 
+				},
+				//在vm销毁前调用
+				beforeDestroy() {
+					clearInterval(this.inteverId);
 				}
 			})
-			setInterval(function(){
-				
-			},1000)
+			
 			
 		</script>
 	</body>
